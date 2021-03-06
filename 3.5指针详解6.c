@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-//»Øµ÷º¯Êý Í¨¹ýº¯ÊýÖ¸Õëµ÷ÓÃµÄº¯Êý 
+//å›žè°ƒå‡½æ•° é€šè¿‡å‡½æ•°æŒ‡é’ˆè°ƒç”¨çš„å‡½æ•° 
 
 
 
@@ -42,7 +42,7 @@ void test2()
 	int j = 0;
 	for (j = 0; j < sz; j++)
 	{
-		printf("%f ", f[j]);//%f ´òÓ¡¸¡µãÐÍ
+		printf("%f ", f[j]);//%f æ‰“å°æµ®ç‚¹åž‹
 	}
 }
 struct Stu
@@ -52,10 +52,10 @@ struct Stu
 };
 int cmp_stu_by_age(const void* e1, const void* e2)
 {
-	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//Ç¿ÖÆ×ª»¯³É½á¹¹ÌåÖ¸Õë ÕÒµ½age
+	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//å¼ºåˆ¶è½¬åŒ–æˆç»“æž„ä½“æŒ‡é’ˆ æ‰¾åˆ°age
 }
-int cmp_stu_by_name(const void* e1, const void* e2)//Í¨¹ýÃû×Ö±È½Ï
-{//±È½ÏÃû×Ö¾ÍÊÇ±È½Ï×Ö·û´®   ×Ö·û´®±È½Ï²»ÄÜÖ±½ÓÓÃ><= ±È½Ï Ó¦¸ÃÓÃstrcmp±È½Ï(×Ö·û´®±È½Ïº¯Êý)
+int cmp_stu_by_name(const void* e1, const void* e2)//é€šè¿‡åå­—æ¯”è¾ƒ
+{//æ¯”è¾ƒåå­—å°±æ˜¯æ¯”è¾ƒå­—ç¬¦ä¸²   å­—ç¬¦ä¸²æ¯”è¾ƒä¸èƒ½ç›´æŽ¥ç”¨><= æ¯”è¾ƒ åº”è¯¥ç”¨strcmpæ¯”è¾ƒ(å­—ç¬¦ä¸²æ¯”è¾ƒå‡½æ•°)
 	strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
 
 }
@@ -67,7 +67,7 @@ void test3()
 	int t = 0;
 	for (t = 0; t < sz; t++)
 	{
-		printf("%c ", s[t]);//%f ´òÓ¡¸¡µãÐÍ
+		printf("%c ", s[t]);//%f æ‰“å°æµ®ç‚¹åž‹
 	}
 
 }
@@ -86,12 +86,12 @@ int main()
 //{
 //	int a = 10;
 //	//int* pa = &a;
-//	//char* pc = &a;//»á±¨¾¯¸æ
+//	//char* pc = &a;//ä¼šæŠ¥è­¦å‘Š
 //	//char ch = 'w';
-//	void* p = &a;//¿ÉÒÔ½ÓÊÕÈÎÒâÀàÐÍÔªËØµÄµØÖ·   void* ÎÞÀàÐÍÖ¸Õë
-//	//*p = 0;//ÕâÑùÊÇ²»ÐÐµÄ ÒòÎªvoid* ²»ÖªµÀ·ÃÎÊ¼¸¸ö×Ö½Ú ËùÒÔ²»ÄÜ½âÒýÓÃ
-//	//p++;//Ò²²»ÐÐ ÒòÎª²»ÖªµÀ¼¸¸ö×Ö½Ú ËùÒÔÒ²²»ÖªµÀ×ß¼¸¸ö×Ö½Ú
-//	//void* ÀàÐÍµÄÖ¸Õë ²»ÄÜ½øÐÐ+-ÕûÊýµÄ²Ù×÷
+//	void* p = &a;//å¯ä»¥æŽ¥æ”¶ä»»æ„ç±»åž‹å…ƒç´ çš„åœ°å€   void* æ— ç±»åž‹æŒ‡é’ˆ
+//	//*p = 0;//è¿™æ ·æ˜¯ä¸è¡Œçš„ å› ä¸ºvoid* ä¸çŸ¥é“è®¿é—®å‡ ä¸ªå­—èŠ‚ æ‰€ä»¥ä¸èƒ½è§£å¼•ç”¨
+//	//p++;//ä¹Ÿä¸è¡Œ å› ä¸ºä¸çŸ¥é“å‡ ä¸ªå­—èŠ‚ æ‰€ä»¥ä¹Ÿä¸çŸ¥é“èµ°å‡ ä¸ªå­—èŠ‚
+//	//void* ç±»åž‹çš„æŒ‡é’ˆ ä¸èƒ½è¿›è¡Œ+-æ•´æ•°çš„æ“ä½œ
 //	//p = &ch;
 //	return 0;
 //}
@@ -101,19 +101,19 @@ int main()
 //	char name[20];
 //	int age;
 //};
-////qsort-¿âº¯Êý-ÅÅÐò  quick sort ËÄ¸ö²ÎÊý µÚËÄ¸öÊÇÖ¸Õë
-//int cmp_int(const void*e1,const void*e2)//Ð´³Évoid½ÓÊÕÈÎÒâÀàÐÍµÄÖ¸Õë
-//{//ÓÃÀ´±È½ÏÁ½¸öÕûÐÍÖµ
-//	return *(int*)e1- *(int*)e2;//ÒòÎªÊÇvoid ËùÒÔ²»ÄÜ±È½Ï  ËùÒÔÇ¿ÖÆ×ª»»³Éint*
+////qsort-åº“å‡½æ•°-æŽ’åº  quick sort å››ä¸ªå‚æ•° ç¬¬å››ä¸ªæ˜¯æŒ‡é’ˆ
+//int cmp_int(const void*e1,const void*e2)//å†™æˆvoidæŽ¥æ”¶ä»»æ„ç±»åž‹çš„æŒ‡é’ˆ
+//{//ç”¨æ¥æ¯”è¾ƒä¸¤ä¸ªæ•´åž‹å€¼
+//	return *(int*)e1- *(int*)e2;//å› ä¸ºæ˜¯void æ‰€ä»¥ä¸èƒ½æ¯”è¾ƒ  æ‰€ä»¥å¼ºåˆ¶è½¬æ¢æˆint*
 //}
 //int main()
 //{
 //	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
 //	int sz = sizeof(arr) / sizeof(arr[0]);
-//	struct Stu s[3] = { {"ÕÅÈý",20},{"ÀîËÄ",20},{"ÍõÎå",10} };
+//	struct Stu s[3] = { {"å¼ ä¸‰",20},{"æŽå››",20},{"çŽ‹äº”",10} };
 //	float f[] = { 9.0,8.0,6.0,5.0,4.0};
-//	qsort(arr, sz, sizeof(arr[0]), cmp_int);//Ê¹ÓÃqsortº¯ÊýÒªÒýÍ·ÎÄ¼þ #include<stdlib.h>
-//	//qsort ÏÈ´«Ä¿±êÊý×éµÄÆðÊ¼Î»ÖÃ È»ºóÊÇÊý×éµÄ´óÐ¡£¬µ¥Î»ÊÇÔªËØ ÔÙÏÂÀ´ÊÇÔªËØ´óÐ¡ ×îºóÊÇ±È½Ïº¯Êý
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int);//ä½¿ç”¨qsortå‡½æ•°è¦å¼•å¤´æ–‡ä»¶ #include<stdlib.h>
+//	//qsort å…ˆä¼ ç›®æ ‡æ•°ç»„çš„èµ·å§‹ä½ç½® ç„¶åŽæ˜¯æ•°ç»„çš„å¤§å°ï¼Œå•ä½æ˜¯å…ƒç´  å†ä¸‹æ¥æ˜¯å…ƒç´ å¤§å° æœ€åŽæ˜¯æ¯”è¾ƒå‡½æ•°
 //	int i = 0;
 //	for (i = 0; i < sz; i++)
 //	{
@@ -146,13 +146,13 @@ int main()
 //	char name[20];
 //	int age;
 //};
-//int main()//Ã°ÅÝÅÅÐò
+//int main()//å†’æ³¡æŽ’åº
 //{
 //	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
 //	int sz = sizeof(arr) / sizeof(arr[0]);
-//	struct Stu s[3] = { {"ÕÅÈý",20},{"ÀîËÄ",20},{"ÍõÎå",10} };//°´ÕÕÄêÁäÀ´ÅÅÐò£¬²»ÄÜÃ°ÅÝÅÅÐòÅÅÁË
-//	float f[] = { 9.0,8.0,6.0,5.0 };//°´ÕÕ¸¡µãÐÍÀ´ÅÅÐò£¬Ò²²»ÄÜÃ°ÅÝÅÅÐòÅÅÁË
-//	bubble_sort(arr, sz);//ÕâÀïÐ´µÄÖ»ÄÜÅÅÕûÐÍ  ²»ÄÜÍ¨ÓÃ
+//	struct Stu s[3] = { {"å¼ ä¸‰",20},{"æŽå››",20},{"çŽ‹äº”",10} };//æŒ‰ç…§å¹´é¾„æ¥æŽ’åºï¼Œä¸èƒ½å†’æ³¡æŽ’åºæŽ’äº†
+//	float f[] = { 9.0,8.0,6.0,5.0 };//æŒ‰ç…§æµ®ç‚¹åž‹æ¥æŽ’åºï¼Œä¹Ÿä¸èƒ½å†’æ³¡æŽ’åºæŽ’äº†
+//	bubble_sort(arr, sz);//è¿™é‡Œå†™çš„åªèƒ½æŽ’æ•´åž‹  ä¸èƒ½é€šç”¨
 //	int i = 0;
 //	for (i = 0; i < sz; i++)
 //	{
@@ -167,17 +167,17 @@ int main()
 //}
 //int main()
 //{
-//	//Ö¸ÕëÊý×é
+//	//æŒ‡é’ˆæ•°ç»„
 //	int* arr[10];
-//	//Êý×éÖ¸Õë
+//	//æ•°ç»„æŒ‡é’ˆ
 //	int*(*pa)[10]=&arr;
-//	//º¯ÊýÖ¸Õë
-//	//int (*pAdd)(int x,int y) = Add;//pAddÊÇº¯ÊýÖ¸Õë µ÷ÓÃAddº¯Êý 
-//	//int sum=(*pAdd)(1, 2);//µ÷ÓÃAddº¯ÊýµÄ½á¹ûÊÇ1 2Ïà¼Ó
+//	//å‡½æ•°æŒ‡é’ˆ
+//	//int (*pAdd)(int x,int y) = Add;//pAddæ˜¯å‡½æ•°æŒ‡é’ˆ è°ƒç”¨Addå‡½æ•° 
+//	//int sum=(*pAdd)(1, 2);//è°ƒç”¨Addå‡½æ•°çš„ç»“æžœæ˜¯1 2ç›¸åŠ 
 //	//printf("sum=%d", sum);
-//	//º¯ÊýÖ¸ÕëµÄÊý×é
-//	int (*pArr[5])(int, int);//pArrÊÇÒ»¸öÊý×é ÔªËØÀàÐÍÊÇÖ¸Õë
-//	//Ö¸ÏòÊý×éÖ¸ÕëµÄÖ¸Õë
+//	//å‡½æ•°æŒ‡é’ˆçš„æ•°ç»„
+//	int (*pArr[5])(int, int);//pArræ˜¯ä¸€ä¸ªæ•°ç»„ å…ƒç´ ç±»åž‹æ˜¯æŒ‡é’ˆ
+//	//æŒ‡å‘æ•°ç»„æŒ‡é’ˆçš„æŒ‡é’ˆ
 //	int (*(*pArr)[5])(int, int)=&pArr;
 //	return 0;
 //}
