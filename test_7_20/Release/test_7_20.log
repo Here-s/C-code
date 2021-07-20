@@ -1,8 +1,0 @@
-﻿  分支和循环2.c
-D:\C-code\test_7_20\分支和循环2.c(3,9): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-D:\C-code\test_7_20\分支和循环2.c(4,9): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  正在生成代码
-  Previous IPDB not found, fall back to full compilation.
-  All 7 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  已完成代码的生成
-  test_7_20.vcxproj -> D:\C-code\test_7_20\Release\test_7_20.exe
