@@ -1,0 +1,3 @@
+﻿  test.c
+D:\C-code\test_7_25\test.c(100): warning C4715: “binary”: 不是所有的控件路径都返回值
+  test_7_25.vcxproj -> D:\C-code\test_7_25\Debug\test_7_25.exe
