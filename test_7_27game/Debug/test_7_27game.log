@@ -1,0 +1,3 @@
+﻿  test.c
+D:\C-code\test_7_27game\game.h(4,9): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+  test_7_27game.vcxproj -> D:\C-code\test_7_27game\Debug\test_7_27game.exe
