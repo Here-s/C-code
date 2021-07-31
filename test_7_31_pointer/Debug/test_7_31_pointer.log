@@ -1,0 +1,3 @@
+﻿  pointer.c
+D:\C-code\test_7_31_pointer\pointer.c(105): warning C4172: 返回局部变量或临时变量的地址: a
+  test_7_31_pointer.vcxproj -> D:\C-code\test_7_31_pointer\Debug\test_7_31_pointer.exe
