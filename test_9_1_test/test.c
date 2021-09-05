@@ -2,27 +2,26 @@
 #include<stdio.h>
 #include<string.h>
 
-
 //int main()
 //{
-//	char arr[] = { 'a','b','c','d','e','f' };//Ԫ�ظ�����6
-//	//printf("%d\n", sizeof(arr));//6 ��Ϊ��6��Ԫ�� һ��Ԫ����1���ֽ� ������6
-//	//printf("%d\n", sizeof(arr + 0));//4��8 ��Ϊ����������Ԫ�ص�ַ +0������Ԫ�ص�ַ �������ﻹ�ǵ�ַ
-//	//printf("%d\n", sizeof(*arr));//1 ��Ϊ�ǽ����� �õ����ǵ�һ��Ԫ�� �� char ������1
-//	//printf("%d\n", sizeof(arr[1]));//1 ��Ϊ�ǵڶ���Ԫ�� ���д�С��1
-//	//printf("%d\n", sizeof(&arr));//4��8 ��Ϊ��ȡ��ַ ���Ե�ַ�� 4��8 
-//	//printf("%d\n", sizeof(&arr + 1));//4��8 ��Ϊ��ȡ��ַ+1 ��������һ��ĵ�ַ ���Ի��ǵ�ַ
-//	//printf("%d\n", sizeof(&arr[0] + 1));//4��8 ȡ��ַ���ǵ�һ��Ԫ�� �� 1 ���ǵڶ���Ԫ�صĵ�ַ
+//	char arr[] = { 'a','b','c','d','e','f' };//元素个数是6
+//	//printf("%d\n", sizeof(arr));//6 因为有6个元素 一个元素是1个字节 所以是6
+//	//printf("%d\n", sizeof(arr + 0));//4或8 因为数组名是首元素地址 +0还是首元素地址 所以这里还是地址
+//	//printf("%d\n", sizeof(*arr));//1 因为是解引用 得到的是第一个元素 是 char 所以是1
+//	//printf("%d\n", sizeof(arr[1]));//1 因为是第二个元素 所有大小是1
+//	//printf("%d\n", sizeof(&arr));//4或8 因为是取地址 所以地址是 4或8 
+//	//printf("%d\n", sizeof(&arr + 1));//4或8 因为是取地址+1 是跳过这一块的地址 所以还是地址
+//	//printf("%d\n", sizeof(&arr[0] + 1));//4或8 取地址的是第一个元素 加 1 就是第二个元素的地址
 //
 //
-//	printf("%d\n", strlen(arr));//���ֵ ��Ϊ�Ǵ���Ԫ�ؿ�ʼ��  ����û�� \0 ���Ծ������ֵ
-//	printf("%d\n", strlen(arr + 0));//Ҳ�����ֵ ��Ϊ����Ԫ�ص�ַ + 0 ���Ժ�����һ��
-//	printf("%d\n", strlen(*arr));//Ұָ�� ��Ϊ *arr ��a  ���ַ� a ��ACSII��ֵ 97 �ǵ�ַ ��97��ʼ������
-//								//����Ұָ�� �������
-//	printf("%d\n", strlen(arr[1]));//Ұָ�� ������ b �ĵ�ַ Ҳ��ASCII��ֵ 98 ���������һ��
-//	printf("%d\n", strlen(&arr));//���ֵ  ������ĵ�ַ �����ַ�������ʼλ�� ���Ժ͵�һ��һ��
-//	printf("%d\n", strlen(&arr + 1));//���ֵ - 6 ��һ����ֵ��ȥ6 ��Ϊ�������ַ����� ���Լ�ȥ 6
-//	printf("%d\n", strlen(&arr[0] + 1));//���ֵ - 1 ��Ϊ������ a �����Ǵ� b ��ʼͳ��
+//	printf("%d\n", strlen(arr));//随机值 因为是从首元素开始求  但是没有 \0 所以就是随机值
+//	printf("%d\n", strlen(arr + 0));//也是随机值 因为是首元素地址 + 0 所以和上面一样
+//	printf("%d\n", strlen(*arr));//野指针 因为 *arr 是a  是字符 a 的ACSII码值 97 是地址 从97开始往后找
+//								//所以野指针 程序崩溃
+//	printf("%d\n", strlen(arr[1]));//野指针 传的是 b 的地址 也是ASCII码值 98 和上面这个一样
+//	printf("%d\n", strlen(&arr));//随机值  是数组的地址 还是字符串的起始位置 所以和第一个一样
+//	printf("%d\n", strlen(&arr + 1));//随机值 - 6 第一个的值减去6 因为跳过了字符数组 所以减去 6
+//	printf("%d\n", strlen(&arr[0] + 1));//随机值 - 1 因为跳过了 a 所以是从 b 开始统计
 //	return 0;
 //}
 
@@ -30,69 +29,69 @@
 //int main()
 //{
 //	char arr[] = "abcdef";
-//	//printf("%d\n", sizeof(arr));//7 ��Ϊ����\0 
-//	//printf("%d\n", sizeof(arr + 0));//4��8 ��Ϊ����Ԫ�ص�ַ ��Ϊ arr û�е����ŵ� sizeof ���� �����ǵ�ַ
-//	//printf("%d\n", sizeof(*arr));//1 ����Ԫ�ص�ַ������ ������Ԫ�� ������ 1 
-//	//printf("%d\n", sizeof(arr[1]));//1 ��Ϊ����ǵڶ���Ԫ��
-//	//printf("%d\n", sizeof(&arr));//4��8 ��Ϊ��ȡ��ַ ���ǵ�ַ ���Ի���4 ��8
-//	//printf("%d\n", sizeof(&arr + 1));//4��8 �������������ĵ�ַ ���ǵ�ַ 
-//	//printf("%d\n", sizeof(&arr[0] + 1));//4��8 ��Ϊ�� b �ĵ�ַ
+//	//printf("%d\n", sizeof(arr));//7 因为有了\0 
+//	//printf("%d\n", sizeof(arr + 0));//4或8 因为是首元素地址 因为 arr 没有单独放到 sizeof 里面 所以是地址
+//	//printf("%d\n", sizeof(*arr));//1 对首元素地址解引用 就是首元素 所以是 1 
+//	//printf("%d\n", sizeof(arr[1]));//1 因为算的是第二个元素
+//	//printf("%d\n", sizeof(&arr));//4或8 因为是取地址 还是地址 所以还是4 或8
+//	//printf("%d\n", sizeof(&arr + 1));//4或8 跳过整个数组后的地址 还是地址 
+//	//printf("%d\n", sizeof(&arr[0] + 1));//4或8 因为是 b 的地址
 //
 //
-//	printf("%d\n", strlen(arr));//6 ��Ϊ�� \0
-//	printf("%d\n", strlen(arr + 0));//6 ��Ϊ������Ԫ�ؿ�ʼ��
-//	printf("%d\n", strlen(*arr));//Ұָ��  ��Ϊ�Ǵ��ĵ�ַ������Ұָ��
-//	printf("%d\n", strlen(arr[1]));//Ұָ�� ��Ϊ�� a�ĵ�ַ ��97 ���Դ�97��ʼ������
-//	printf("%d\n", strlen(&arr));//6 ��Ϊ��ȡ��ַ ������Ԫ�ؿ�ʼ ������6
-//	printf("%d\n", strlen(&arr + 1));//���ֵ  ��Ϊ���������������� Ȼ��������
-//	printf("%d\n", strlen(&arr[0] + 1));//5 ��Ϊ������a �Ǵ�b ��ʼ��
+//	printf("%d\n", strlen(arr));//6 因为有 \0
+//	printf("%d\n", strlen(arr + 0));//6 因为还是首元素开始的
+//	printf("%d\n", strlen(*arr));//野指针  因为是传的地址所以是野指针
+//	printf("%d\n", strlen(arr[1]));//野指针 因为是 a的地址 是97 所以从97开始往后找
+//	printf("%d\n", strlen(&arr));//6 因为是取地址 还是首元素开始 所以是6
+//	printf("%d\n", strlen(&arr + 1));//随机值  因为是跳过了整个数组 然后往后找
+//	printf("%d\n", strlen(&arr[0] + 1));//5 因为跳过了a 是从b 开始的
 //	return 0;
 //}
 
 
 //int main()
 //{
-//	const char* p = "abcdef";//����const ��ʹ�� �����ַ������ܱ��޸�
-//	//printf("%d\n", sizeof(p));//4��8 ��Ϊp ��ָ����� ָ������ŵ��ǵ�ַ ������4��8
-//	//printf("%d\n", sizeof(p + 1));//4��8 ��Ϊָ���1 ������һ���ַ� ������ b�ĵ�ַ ������4����8
-//	//printf("%d\n", sizeof(*p));//1 ��Ϊ�ǽ����� �õ����� a 
-//	//printf("%d\n", sizeof(p[0]));//1 ��Ϊ������ �ǵ�һ��Ԫ�� ������ a Ҳ�� 1
-//	//printf("%d\n", sizeof(&p));//4��8 ��p�ĵ�ַ ������ 4��8 
-//	//printf("%d\n", sizeof(&p + 1));//4��8 ����p�ĵ�ַ ָ��p����һ����ַ ����һ����ַ
-//	//printf("%d\n", sizeof(&p[0] + 1));//4��8 ָ��ڶ���Ԫ�صĵ�ַ ��Ϊ[0] ���ǵ�һ��Ԫ�� a�ĵ�ַ
+//	const char* p = "abcdef";//加上const 就使得 常量字符串不能被修改
+//	//printf("%d\n", sizeof(p));//4或8 因为p 是指针变量 指针变量放的是地址 所以是4或8
+//	//printf("%d\n", sizeof(p + 1));//4或8 因为指针加1 跳过了一个字符 所以是 b的地址 所以是4或者8
+//	//printf("%d\n", sizeof(*p));//1 因为是解引用 得到的是 a 
+//	//printf("%d\n", sizeof(p[0]));//1 因为是数组 是第一个元素 所以是 a 也是 1
+//	//printf("%d\n", sizeof(&p));//4或8 是p的地址 所以是 4或8 
+//	//printf("%d\n", sizeof(&p + 1));//4或8 跳过p的地址 指向p的下一个地址 还是一个地址
+//	//printf("%d\n", sizeof(&p[0] + 1));//4或8 指向第二个元素的地址 因为[0] 就是第一个元素 a的地址
 //
 //
-//	printf("%d\n", strlen(p));//6 ��Ϊ��\0
-//	printf("%d\n", strlen(p + 1));//5 ��Ϊp�ǵ�һ��Ԫ�� ����+1 ���ǵڶ���Ԫ�� b
-//	printf("%d\n", strlen(*p));//Ұָ�� ��Ϊ*p ��a ������ͳ�Ƶ�a�ĵ�ַ 97��ʼ
-//	printf("%d\n", strlen(p[0]));//Ұָ�� ��Ϊ��a ������97 
-//	printf("%d\n", strlen(&p));//���ֵ ��Ϊ��ָ������ĵ�ַ ���������ֵ
-//	printf("%d\n", strlen(&p + 1));//�µ����ֵ  ��Ϊ��������ָ��p ��4���ֽ� ��֪����4���ֽ�����ŵ���ʲô����
-//									//��������һ���µ����ֵ   �������ĸ��ֽ�������� \0
-//	printf("%d\n", strlen(&p[0] + 1));//5 ��Ϊ��������a ��b ��ʼ��
+//	printf("%d\n", strlen(p));//6 因为有\0
+//	printf("%d\n", strlen(p + 1));//5 因为p是第一个元素 所以+1 就是第二个元素 b
+//	printf("%d\n", strlen(*p));//野指针 因为*p 是a 所以是统计的a的地址 97开始
+//	printf("%d\n", strlen(p[0]));//野指针 因为是a 传的是97 
+//	printf("%d\n", strlen(&p));//随机值 因为是指针变量的地址 所以是随机值
+//	printf("%d\n", strlen(&p + 1));//新的随机值  因为跳过的是指针p 是4个字节 不知道这4个字节里面放的是什么东西
+//									//所以又是一个新的随机值   可能这四个字节里面就有 \0
+//	printf("%d\n", strlen(&p[0] + 1));//5 因为是跳过了a 从b 开始数
 //	return 0;
 //}
 
 
 //int main()
 //{
-//	int a[3][4] = { 0 };//��ά���� ��������
-//	printf("%d\n", sizeof(a));//48  ��Ϊ��12��Ԫ��
-//	printf("%d\n", sizeof(a[0][0]));//4  ��һ��Ԫ�� ������ 4
-//	printf("%d\n", sizeof(a[0]));//16 �ǵ�һ�е�Ԫ��
-//	printf("%d\n", sizeof(a[0] + 1));//4��8 ��Ϊa[0] �ǵ�һ�е�һ��Ԫ�صĵ�ַ ��Ϊû�е�������sizeof�ڲ�
-//	//Ҳû�е���ȡ��ַ +1 �ǵ�һ�еڶ���Ԫ�صĵ�ַ
-//	printf("%d\n", sizeof(*(a[0] + 1)));//4 ��Ϊ�õ����ǵ�һ�еڶ���Ԫ�� �����õ��ǵ�һ�еڶ���Ԫ��
-//	printf("%d\n", sizeof(a + 1));//4��8  ��Ϊ��ά�������������ʾ��Ԫ�ص�һ�еĵ�ַ ���� +1 ���ǵڶ��еĵ�ַ
-//	printf("%d\n", sizeof(*(a + 1)));//16  �������õ����ǵڶ��� ������16
-//	printf("%d\n", sizeof(&a[0] + 1));//4��8  �ǵڶ��еĵ�ַ ��Ϊȡ��ַ �õ��˵�һ�еĵ�ַ Ȼ��+1 �õ��˵ڶ��еĵ�ַ
-//	//��Ϊ�ǶԵ�һ�еĵ�ַ+1 ���Եõ����ǵڶ��еĵ�ַ��
-//	printf("%d\n", sizeof(*(&a[0] + 1)));//16  ��Ϊ�ǶԵڶ��е�ַ������ ��������ǵڶ��еĴ�С
-//	printf("%d\n", sizeof(*a));//16  a��ʾ��ά������Ԫ�ص�һ�еĵ�ַ ���Խ����� �õ��ľ��ǵ�һ�� ����16
-//	printf("%d\n", sizeof(a[3]));//16  ��ΪԽ���� �൱�ڵ����е������� ��Ϊsizeof�ڲ��ı���ʽ�ǲ����������
-//	//��������ǵ����е��ܴ�С ��a[3] ������ ������������ ������ڵĻ� ����16  �������������16 
-//	//a[3] ������� ���ǵ����е������� sizeof��a[3]) �൱�ڰѵ����е���������������sizeof() ����
-//	//�������� sizeof(int)   sizeof �������ͼ��� ������ʵ����
+//	int a[3][4] = { 0 };//二维数组 三行四列
+//	printf("%d\n", sizeof(a));//48  因为是12个元素
+//	printf("%d\n", sizeof(a[0][0]));//4  第一个元素 所以是 4
+//	printf("%d\n", sizeof(a[0]));//16 是第一行的元素
+//	printf("%d\n", sizeof(a[0] + 1));//4或8 因为a[0] 是第一行第一个元素的地址 因为没有单独放在sizeof内部
+//	//也没有单独取地址 +1 是第一行第二个元素的地址
+//	printf("%d\n", sizeof(*(a[0] + 1)));//4 因为拿到的是第一行第二个元素 解引用的是第一行第二个元素
+//	printf("%d\n", sizeof(a + 1));//4或8  因为二维数组的数组名表示首元素第一行的地址 所以 +1 就是第二行的地址
+//	printf("%d\n", sizeof(*(a + 1)));//16  解引用拿到的是第二行 所以是16
+//	printf("%d\n", sizeof(&a[0] + 1));//4或8  是第二行的地址 因为取地址 得到了第一行的地址 然后+1 得到了第二行的地址
+//	//因为是对第一行的地址+1 所以得到的是第二行的地址了
+//	printf("%d\n", sizeof(*(&a[0] + 1)));//16  因为是对第二行地址解引用 所以算的是第二行的大小
+//	printf("%d\n", sizeof(*a));//16  a表示二维数组首元素第一行的地址 所以解引用 拿到的就是第一行 就是16
+//	printf("%d\n", sizeof(a[3]));//16  因为越界了 相当于第四行的数组名 因为sizeof内部的表达式是不参与运算的
+//	//所以算的是第四行的总大小 用a[3] 来假想 根据类型来算 如果存在的话 就是16  所以这里算的是16 
+//	//a[3] 假设存在 就是第四行的数组名 sizeof（a[3]) 相当于把第四行的数组名单独放在sizeof() 当中
+//	//就类似于 sizeof(int)   sizeof 根据类型计算 不会真实运算
 //	return 0;
 //}
 
@@ -114,13 +113,13 @@ struct Test
 	char cha[2];
 	short sBa[4];
 }*p;
-//����p ��ֵΪ0x100000�� ���±�����ʽ��ֵ�ֱ�Ϊ���٣�
-//��֪���ṹ��Test���͵ı�����С��20���ֽ�
+//假设p 的值为0x100000。 如下表表达式的值分别为多少？
+//已知，结构体Test类型的变量大小是20个字节
 int main()
 {
-	p = (struct Test*)0x100000;//0x1 ����1
-	printf("%p\n", p + 0x1);//00100014   ��Ϊ+1 ������һ���ṹ�� �ӵ��ǽṹ����ֽ� ����20 ���Ծ�������
-	printf("%p\n", (unsigned long)p + 0x1);//00100001   ǿ��ת��Ϊ������ ����+1 ����+1
-	printf("%p\n", (unsigned int*)p + 0x1);//00100004   ��Ϊ����ָ�� ָ��Ĵ�С��4���ֽ� �����Ǽ���4
+	p = (struct Test*)0x100000;//0x1 就是1
+	printf("%p\n", p + 0x1);//00100014   因为+1 跳过了一个结构体 加的是结构体的字节 加了20 所以就是这样
+	printf("%p\n", (unsigned long)p + 0x1);//00100001   强制转换为整数了 所以+1 就是+1
+	printf("%p\n", (unsigned int*)p + 0x1);//00100004   因为加了指针 指针的大小是4个字节 所以是加了4
 	return 0;
 }
