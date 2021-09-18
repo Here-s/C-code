@@ -3,6 +3,7 @@
 #include<string.h>
 #include<assert.h>
 
+
 //实现一个函数，可以左旋字符串中的k个字符。
 //例如：
 //ABCD左旋一个字符得到BCDA
