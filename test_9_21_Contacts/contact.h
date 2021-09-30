@@ -36,3 +36,12 @@ void AddContact(struct Contact* pc);
 
 //显示所有的联系人
 void ShowContact(struct Contact* pc);
+
+//删除指定联系人
+void DelContact(struct Contact* pc);
+
+//查找联系人
+void SearchContact(const struct Contact* pc);
+
+//修改联系人
+void ModifyContact(struct Contact* pc);
