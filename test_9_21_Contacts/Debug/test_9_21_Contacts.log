@@ -1,4 +1,5 @@
 ﻿  contact.c
+D:\C-code\test_9_21_Contacts\contact.c(63,13): warning C4098: “AddContact”:“void”函数返回值
   test.c
   正在生成代码...
   test_9_21_Contacts.vcxproj -> D:\C-code\test_9_21_Contacts\Debug\test_9_21_Contacts.exe

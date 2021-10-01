@@ -30,6 +30,7 @@ int main()
 	struct Contact con;
 	//初始化通讯录
 	InitContact(&con);
+	//最多可以放三个人的信息 空间不够 可以增容
 
 	do 
 	{
@@ -54,6 +55,8 @@ int main()
 			ShowContact(&con);
 			break;
 		case EXIT:
+			//销毁通讯录
+			DestroyContact(&con);
 			printf("退出通讯录\n");
 			break;
 		default:

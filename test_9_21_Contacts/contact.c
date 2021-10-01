@@ -2,36 +2,84 @@
 #include"contact.h"
 
 
-//初始化通讯录
+//初始化通讯录  静态版本
+//void InitContact(struct Contact* pc)
+//{
+//	pc->sz = 0;
+//	memset(pc->data, 0, MAX * sizeof(struct PeoInfo));
+//}
+
+//动态版本
 void InitContact(struct Contact* pc)
 {
 	pc->sz = 0;
-	memset(pc->data, 0, MAX * sizeof(struct PeoInfo));
+	pc->data = (struct PeoInfo*)malloc(3 * sizeof(struct PeoInfo));
+	//每个元素都是 struct PeoInfo 类型
+	pc->capacity = DEFAULT_SZ;
 }
 
-//增加联系人
+
+//增加联系人 静态版本
+//void AddContact(struct Contact* pc)
+//{
+//	if (pc->sz == MAX)
+//	{
+//		printf("通讯录满了\n");
+//	}
+//	else
+//	{
+//		printf("请输入名字\n");
+//		scanf("%s", pc->data[pc->sz].name);
+//		printf("请输入年龄\n");
+//		scanf("%d", &pc->data[pc->sz].age);//因为 age 是一个变量 所以要取地址
+//		printf("请输入性别\n");
+//		scanf("%s", pc->data[pc->sz].sex);
+//		printf("请输入电话\n");
+//		scanf("%s", pc->data[pc->sz].tele);
+//		printf("请输入地址\n");
+//		scanf("%s", pc->data[pc->sz].addr);
+//		printf("添加成功\n");
+//		pc->sz++;
+//	}
+//}
+
+
+//动态版本
 void AddContact(struct Contact* pc)
 {
-	if (pc->sz == MAX)
+	if (pc->sz == pc->capacity)
 	{
-		printf("通讯录满了\n");
+		//增容
+		struct PeoInfo* ptr = (struct PeoInfo*)realloc(pc->data, (pc->capacity + 2) * sizeof(struct PeoInfo));
+		if (ptr != NULL)
+		{
+			pc->data = ptr;
+			pc->capacity += 2;
+			printf("空间足够，可以添加联系人\n");
+		}
+		else
+		{
+			printf("空间不足，无法添加联系人\n");
+			return -1;
+		}
 	}
-	else
-	{
-		printf("请输入名字\n");
-		scanf("%s", pc->data[pc->sz].name);
-		printf("请输入年龄\n");
-		scanf("%d", &pc->data[pc->sz].age);//因为 age 是一个变量 所以要取地址
-		printf("请输入性别\n");
-		scanf("%s", pc->data[pc->sz].sex);
-		printf("请输入电话\n");
-		scanf("%s", pc->data[pc->sz].tele);
-		printf("请输入地址\n");
-		scanf("%s", pc->data[pc->sz].addr);
-		printf("添加成功\n");
-		pc->sz++;
-	}
+	//不满 就录入新增人的信息
+	printf("请输入名字\n");
+	scanf("%s", pc->data[pc->sz].name);//pc->sz 时数组下标
+	printf("请输入年龄\n");
+	scanf("%d", &pc->data[pc->sz].age);//因为 age 是一个变量 所以要取地址
+	printf("请输入性别\n");
+	scanf("%s", pc->data[pc->sz].sex);
+	printf("请输入电话\n");
+	scanf("%s", pc->data[pc->sz].tele);
+	printf("请输入地址\n");
+	scanf("%s", pc->data[pc->sz].addr);
+	printf("添加成功\n");
+	pc->sz++;
+	
 }
+
+
 
 
 //显示所有的联系人
@@ -135,4 +183,12 @@ void ModifyContact(struct Contact* pc)
 		scanf("%s", pc->data[pos].addr);
 		printf("修改成功\n");
 	}
+}
+
+
+//销毁通讯录
+void DestroyContact(struct Contact* pc)
+{
+	//因为只有 data 是 malloc 出来的  所以直接把它销毁就行了
+	free(pc->data);
 }
