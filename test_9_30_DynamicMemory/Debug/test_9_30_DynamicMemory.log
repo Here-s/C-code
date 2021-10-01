@@ -1,0 +1,3 @@
+﻿  DynamicMemory.c
+D:\C-code\test_9_30_DynamicMemory\DynamicMemory.c(311): warning C4172: 返回局部变量或临时变量的地址: n
+  test_9_30_DynamicMemory.vcxproj -> D:\C-code\test_9_30_DynamicMemory\Debug\test_9_30_DynamicMemory.exe
