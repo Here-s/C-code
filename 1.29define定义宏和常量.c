@@ -1,27 +1,28 @@
 #include<stdio.h>
-int Max(int x, int y)//º¯ÊıµÄÊµÏÖ
+
+int Max(int x, int y)//å‡½æ•°çš„å®ç°
 {
 	if (x > y)
 		return x;
-	else//else±í·ñÔò
+	else//elseè¡¨å¦åˆ™
 		return y;
 }
-#define MAX(X,Y) (X>Y?X:Y)//ºêµÄ¶¨Òå
-int main()//define¿ÉÒÔ¶¨Òåºê-´ø²ÎÊı
+#define MAX(X,Y) (X>Y?X:Y)//å®çš„å®šä¹‰
+int main()//defineå¯ä»¥å®šä¹‰å®-å¸¦å‚æ•°
 
 {
 	int a = 10;
 	int b = 20;
-	//º¯Êı·½Ê½
+	//å‡½æ•°æ–¹å¼
 	int max = Max(a, b);
 	printf("max=%d\n",max);
-	//ºêµÄ·½Ê½
+	//å®çš„æ–¹å¼
 	max = MAX(a, b);
 	//max=(a>b?a:b)
 	printf("max=%d\n", max);
 	return 0;
 }
-//#define MAX 100//define¶¨Òå±êÊ¶·û³£Á¿
+//#define MAX 100//defineå®šä¹‰æ ‡è¯†ç¬¦å¸¸é‡
 //int main()
 //
 //{
