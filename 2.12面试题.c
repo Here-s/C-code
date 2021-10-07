@@ -1,9 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
-//²»ÄÜ´´½¨µÚÈý¸ö±äÁ¿£¨ÁÙÊ±±äÁ¿£©£¬ÊµÏÖÁ½¸öÊý×éµÄ½»»»
+//ä¸èƒ½åˆ›å»ºç¬¬ä¸‰ä¸ªå˜é‡ï¼ˆä¸´æ—¶å˜é‡ï¼‰ï¼Œå®žçŽ°ä¸¤ä¸ªæ•°ç»„çš„äº¤æ¢
 
-
-int main()//Òì»òµÄ·½·¨  Òì»ò¾ÍÊÇ²»Ò»ÑùµÄ»°¾ÍÊÇ1 ¶¼ÊÇ1µÄ»°¾ÍÊÇ0  ²»»áÒç³ö  Ö´ÐÐÐ§ÂÊ²»¸ß ¿É¶ÁÐÔ²»Ç¿
+int main()//å¼‚æˆ–çš„æ–¹æ³•  å¼‚æˆ–å°±æ˜¯ä¸ä¸€æ ·çš„è¯å°±æ˜¯1 éƒ½æ˜¯1çš„è¯å°±æ˜¯0  ä¸ä¼šæº¢å‡º  æ‰§è¡Œæ•ˆçŽ‡ä¸é«˜ å¯è¯»æ€§ä¸å¼º
 {
 	int a = 3;
 	int b = 5;
@@ -14,7 +13,7 @@ int main()//Òì»òµÄ·½·¨  Òì»ò¾ÍÊÇ²»Ò»ÑùµÄ»°¾ÍÊÇ1 ¶¼ÊÇ1µÄ»°¾ÍÊÇ0  ²»»áÒç³ö  Ö´ÐÐÐ§
 	return 0;
 }
 
-//int main()//¼Ó¼õ·¨  ÒòÎªÊÇÕûÐÍ£¬ËùÒÔ»áÒç³ö
+//int main()//åŠ å‡æ³•  å› ä¸ºæ˜¯æ•´åž‹ï¼Œæ‰€ä»¥ä¼šæº¢å‡º
 //{
 //	int a = 3;
 //	int b = 5;
@@ -25,7 +24,7 @@ int main()//Òì»òµÄ·½·¨  Òì»ò¾ÍÊÇ²»Ò»ÑùµÄ»°¾ÍÊÇ1 ¶¼ÊÇ1µÄ»°¾ÍÊÇ0  ²»»áÒç³ö  Ö´ÐÐÐ§
 //	return 0;
 //}
 
-//int main()//´´½¨±äÁ¿µÄ·½Ê½
+//int main()//åˆ›å»ºå˜é‡çš„æ–¹å¼
 //{
 //	int a = 3;
 //	int b = 5;
