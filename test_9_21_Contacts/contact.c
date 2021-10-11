@@ -9,6 +9,53 @@
 //	memset(pc->data, 0, MAX * sizeof(struct PeoInfo));
 //}
 
+//检查通讯录空间  并且完成增容
+void CheckCapacity(struct Contact* pc)
+{
+	if (pc->sz == pc->capacity)
+	{
+		//增容
+		struct PeoInfo* ptr = (struct PeoInfo*)realloc(pc->data, (pc->capacity + 2) * sizeof(struct PeoInfo));
+		if (ptr != NULL)
+		{
+			pc->data = ptr;
+			pc->capacity += 2;
+			printf("空间足够，可以添加联系人\n");
+		}
+		else
+		{
+			perror("通讯录增容失败\n");
+			exit(1);//exit 使程序直接结束  1 是异常结束  0 是正常结束
+		}
+	}
+}
+
+//加载文件中的信息到通讯录
+void LoadContact(struct Contact* pc)
+{
+	//打开文件
+	FILE* pf = fopen("contact.txt", "rb");
+	if (pf == NULL)
+	{
+		perror("LoadContact::fopen");
+		return -1;
+	}
+	//读文件
+	struct PeoInfo tmp = { 0 };
+	//因为 fread 读到数据返回 1 读不到返回 0 所以就用 while 来判断
+	while (fread(&tmp, sizeof(struct PeoInfo), 1, pf))
+	{
+		//考虑空间如果不够 就增加空间
+		CheckCapacity(pc);
+
+		pc->data[pc->sz] = tmp;
+		pc->sz++;
+	}
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
+}
+
 //动态版本
 void InitContact(struct Contact* pc)
 {
@@ -16,6 +63,9 @@ void InitContact(struct Contact* pc)
 	pc->data = (struct PeoInfo*)malloc(3 * sizeof(struct PeoInfo));
 	//每个元素都是 struct PeoInfo 类型
 	pc->capacity = DEFAULT_SZ;
+
+	//加载文件信息到通讯录
+	LoadContact(pc);//加载到 pc 当中
 }
 
 
@@ -47,22 +97,8 @@ void InitContact(struct Contact* pc)
 //动态版本
 void AddContact(struct Contact* pc)
 {
-	if (pc->sz == pc->capacity)
-	{
-		//增容
-		struct PeoInfo* ptr = (struct PeoInfo*)realloc(pc->data, (pc->capacity + 2) * sizeof(struct PeoInfo));
-		if (ptr != NULL)
-		{
-			pc->data = ptr;
-			pc->capacity += 2;
-			printf("空间足够，可以添加联系人\n");
-		}
-		else
-		{
-			printf("空间不足，无法添加联系人\n");
-			return -1;
-		}
-	}
+	//检测容量
+	CheckCapacity(pc);
 	//不满 就录入新增人的信息
 	printf("请输入名字\n");
 	scanf("%s", pc->data[pc->sz].name);//pc->sz 时数组下标
@@ -191,4 +227,24 @@ void DestroyContact(struct Contact* pc)
 {
 	//因为只有 data 是 malloc 出来的  所以直接把它销毁就行了
 	free(pc->data);
+}
+
+//保存信息到通讯录
+void SaveContact(struct Contact* pc)
+{
+	//打开文件
+	FILE* pf = fopen("contact.txt", "wb");
+	if (pf == NULL)
+	{
+		perror("SaveContact::fopen");
+		return -1;
+	}
+	//写数据  有几个数据就保存几次
+	for (int i = 0; i < pc->sz; i++)
+	{
+		fwrite(&(pc->data[i]), sizeof(struct PeoInfo), 1, pf);
+	}
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
 }

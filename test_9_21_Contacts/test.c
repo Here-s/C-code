@@ -56,6 +56,7 @@ int main()
 			break;
 		case EXIT:
 			//销毁通讯录
+			SaveContact(&con);
 			DestroyContact(&con);
 			printf("退出通讯录\n");
 			break;
@@ -66,3 +67,9 @@ int main()
 	} while (input);
 	return 0;
 }
+
+
+//文件的版本：
+//1 退出通讯录的时候 保存信息到文件中去  
+//2 运行起来通讯录的时候 能够把通讯录的信息展示出来（也就是把文件信息加载到程序当中）
+//3 退出通讯录的时候 应该保存信息（SaveContact） 然后销毁通讯录

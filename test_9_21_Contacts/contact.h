@@ -61,3 +61,9 @@ void ModifyContact(struct Contact* pc);
 
 //销毁通讯录
 void DestroyContact(struct Contact* pc);
+
+//保存信息到通讯录
+void SaveContact(struct Contact* pc);
+
+//加载文件中的信息到通讯录
+void LoadContact(struct Contact* pc);
